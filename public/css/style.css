@@ -680,19 +680,20 @@ a.navbar-brand img {
     width: 180px;
     height: 50px;
     background: transparent;
-    color: #61055e;
     float: left;
     line-height: 50px;
     text-align: center;
     font-size: 18px;
     font-weight: 500;
     margin-top: 50px;
-    border-radius: 5px;
+		border-radius: 5px;
+		color: #ffffff;
+		border: 2px solid #ffffff;
 }
 
 .contact_bt:hover,
 .contact_bt:focus {
-	color: #ffffff;
+	color: #61055e;
 	background: #ffffff;
 	border: 2px solid #ffffff;
 }
