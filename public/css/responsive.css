@@ -282,6 +282,7 @@ a.navbar-brand img {
 }
 
 a.navbar-brand img {
+    width: 50px;
     height: auto;
 }
 
