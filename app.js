@@ -26,6 +26,9 @@ app.get('/sponsor-a-child', (req, res) => {
 app.get('/register-an-orphan', (req, res) => {
   res.sendFile(path.join(__dirname+'/dropAChild.html'));
 });
+app.get('/donate', (req, res) => {
+  res.sendFile(path.join(__dirname+'/donate.html'));
+});
 
 app.use('/', router);
 app.listen(process.env.PORT || 3000);
