@@ -679,7 +679,7 @@ a.navbar-brand img {
 .contact_bt {
     width: 180px;
     height: 50px;
-    background: #ffffff;
+    background: transparent;
     color: #61055e;
     float: left;
     line-height: 50px;
@@ -693,7 +693,7 @@ a.navbar-brand img {
 .contact_bt:hover,
 .contact_bt:focus {
 	color: #ffffff;
-	background-color: transparent;
+	background: #ffffff;
 	border: 2px solid #ffffff;
 }
 
