@@ -1871,6 +1871,12 @@ p {
     background-repeat: no-repeat;
 }
 
+.benef {
+	font-size: 1.3rem;
+	text-align: center;
+	line-height: 1.8;
+}
+
 .heading_main h2 span {
 	color: #61055e;
 }
@@ -2196,10 +2202,9 @@ div.inner_banner h3 {
 }
 
 .blog_img_popular h4 {
-    /* width: 86%; */
+    width: 40%;
     background: #fff;
     margin: 0 7%;
-    padding: 20px;
     color: #61055e;
     text-align: center;
     font-size: 20px;
