@@ -2196,10 +2196,10 @@ div.inner_banner h3 {
 }
 
 .blog_img_popular h4 {
-    width: 86%;
+    /* width: 86%; */
     background: #fff;
     margin: 0 7%;
-    padding: 0;
+    padding: 20px;
     color: #61055e;
     text-align: center;
     font-size: 20px;
