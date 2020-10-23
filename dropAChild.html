@@ -13,8 +13,8 @@
     <link rel="canonical" href="https://www.loctechng.com/"></link>
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="./images/white-logo.png" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="./images/white-logo.png" />
+    <link rel="shortcut icon" href="./images/icon.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="./images/icon.png" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/pogo-slider.min.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -110,8 +110,8 @@
                 <input type="text" class="form-control" id="religion" aria-describedby="religion">
               </div>
               <div class="form-group">
-                <label class="my-1 mr-2" for="marital-status">Marital Status</label>
-                <select class="custom-select" id="marital-status">
+                <label class="my-1 mr-2" for="maritalStatus">Marital Status</label>
+                <select class="custom-select" id="maritalStatus">
                   <option selected>Choose...</option>
                   <option value="single">Single</option>
                   <option value="married">Married</option>
@@ -175,6 +175,7 @@
                   <label for="nationality">Nationality</label>
                   <input type="text" class="form-control" id="nationality" aria-describedby="nationality">
                 </div>
+
                 <div class="form-group">
                   <label for="fathersName">Father's Name</label>
                   <input type="text" class="form-control" id="fathersName" aria-describedby="Fathers Name">
@@ -219,14 +220,14 @@
                 
               </fieldset>
               <br />
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary" id="submit">Submit</button>
             </form>
           </div>
         </div>			  
       </div>
     </section>
     <!-- end section -->
-    
+
     <!-- Start Footer -->
     <footer class="footer-box">
       <div class="container">
@@ -234,7 +235,7 @@
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
 			      <div class="footer_blog">
 				      <div class="full margin-bottom_30">
-					      <img src="images/logo.png" alt="Oasis of Love" />
+					      <img src="images/logo-footer.png" alt="Oasis of Love" />
 					    </div>
 					    <div class="full white_fonts">
 					      <p>To Provide decent homes in Family setting so as to instil in the children Family and Godly Values. To Equip Our Children with Skills to Prepare Them For Life</p>
@@ -308,6 +309,78 @@
     <script src="js/isotope.min.js"></script>
     <script src="js/images-loded.min.js"></script>
     <script src="js/custom.js"></script>
+
+    <script>
+      // name, gender, religion, marital-status, address, phone, email, nameOfChild, ageOfChild, genderOfChild, homeTown, lga, nationality, fathersName, deathDateOfFather, fathersDeathCertificate, mothersName, deathDateOfMother, mothersDeathCertificate, childsMedical, childsClass, consentLetter, policeReport
+      const submitFrm = async(data) => {
+        const response = await fetch('/register-child-form', {
+          method: 'POST',
+          // mode: 'cors',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+        return response.json();
+      };
+
+      const sanitize = (string) => {
+        const map = {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#x27;',
+          "/": '&#x2F;',
+        };
+        const reg = /[&<>"'/]/ig;
+        return string.replace(reg, (match)=>(map[match]));
+      }
+
+      const response = document.getElementById('response');
+      const submit = document.getElementById('submit');
+      submit.addEventListener('click', async(e) => {
+        submit.disabled = true;
+        submit.innerHTML = `<img src="images/button__loader.gif" alt="Submitting..." />`;
+        const name = document.getElementById('name').value.trim();
+        const gender = document.getElementById('gender').value.trim();
+        const religion = document.getElementById('religion').value.trim();
+        const maritalStatus = document.getElementById('maritalStatus').value.trim();
+        const address = document.getElementById('address').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const nameOfChild = document.getElementById('nameOfChild').value.trim();
+        const ageOfChild = document.getElementById('ageOfChild').value.trim();
+        const genderOfChild = document.getElementById('genderOfChild').value.trim();
+        const lga = document.getElementById('lga').value.trim();
+        const nationality = document.getElementById('nationality').value.trim();
+        const fathersName = document.getElementById('fathersName').value.trim();
+        const deathDateOfFather = document.getElementById('deathDateOfFather').value.trim();
+        const fathersDeathCertificate = document.getElementById('fathersDeathCertificate').value.trim();
+        const mothersName = document.getElementById('mothersName').value.trim();
+        const deathDateOfMother = document.getElementById('deathDateOfMother').value.trim();
+        const mothersDeathCertificate = document.getElementById('mothersDeathCertificate').value.trim();
+        const childsMedical = document.getElementById('childsMedical').value.trim();
+        const childsClass = document.getElementById('childsClass').value.trim();
+        const consentLetter = document.getElementById('consentLetter').value.trim();
+        const policeReport = document.getElementById('policeReport').value.trim();
+
+        e.preventDefault();
+        const data = { name: sanitize(name), email: sanitize(email), phone: sanitize(phone), message: sanitize(message) };
+        const result = await submitFrm(data);
+        submit.innerHTML = 'Submitted';
+        if(result.message !== undefined) {
+          response.style.display = 'block';
+          response.style.color = 'green';
+          response.innerHTML = result.message;
+        } else {
+          response.style.display = 'block';
+          response.style.color = 'red';
+          response.innerHTML = result.error;
+        }
+      });
+    </script>
+
 	  <script>
 	    /* counter js */
 

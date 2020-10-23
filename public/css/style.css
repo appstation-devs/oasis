@@ -109,6 +109,14 @@ a {
 	outline: none;
 }
 
+.pogoSlider-sliderr1 {
+	background-image:url(../images/banner1.png) !important;
+}
+.pogoSlider-sliderr2 {
+	background-image:url(../images/banner2.png) !important;
+}
+
+
 .dark_bg {
 	background: #000;
 }
@@ -369,7 +377,7 @@ a.navbar-brand {
 }
 
 a.navbar-brand img {
-  height: 45px;
+  height: 60px;
 }
 
 .top-header .navbar .navbar-collapse ul li a.active,
@@ -533,7 +541,7 @@ a.navbar-brand img {
 	color: #f2d6bd;
 }
 .banner_text {
-	color: #ffffff;
+	color: #fdfdfde6;
 }
 
 /*------------------------------------------------------------------ Banner -------------------------------------------------------------------*/
@@ -648,7 +656,6 @@ a.navbar-brand img {
     font-size: 55px;
     font-weight: 600;
     padding: 0;
-    line-height: 45px !important;
     text-align: center;
     color: #fff;
 }

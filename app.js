@@ -1,9 +1,39 @@
-var express = require('express');
-var path = require('path');
-var router = express.Router();
-var app = express();
+const express = require('express');
+const path = require('path');
+const cors = require('cors');
+const app = express();
+const router = express.Router();
 
+const { contactFormValidationRules, registerAChildValidationRules, validate } = require('./validators/forms');
+const contactForm = require('./mail/contactForm');
+const registerAChildMail = require('./mail/registerAChild');
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.post('/contact-form', contactFormValidationRules(), validate, (req, res) => {
+  const data = { ...req.body };
+  contactForm.contactMail(data, (error, response) => {
+    if (error) {
+      res.status(500).json({ error: error });
+    } else {
+      res.status(200).json({ message: response });
+    }
+  });
+});
+
+app.post('/register-child-form', registerAChildValidationRules(), validate, (req, res) => {
+  const data = { ...req.body };
+  contactForm.contactMail(data, (error, response) => {
+    if (error) {
+      res.status(500).json({ error: error });
+    } else {
+      res.status(200).json({ message: response });
+    }
+  });
+});
 
 router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname+'/index.html'));
