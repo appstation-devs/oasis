@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 const smtp = require('nodemailer-smtp-transport');
 require('dotenv').config();
 
-exports.contactMail = (formData, cb) => {
+exports.sponsorMail = (formData, cb) => {
   const transporter = nodemailer.createTransport(smtp({
     service: 'appstation',
     host: 'mail.appstation.ng',
@@ -20,15 +20,21 @@ exports.contactMail = (formData, cb) => {
   const mailOptions = {
     from: process.env.USER,
     to:  process.env.RECIEVER,
-    subject: 'New Contact Form data',
+    subject: 'Sponsorship Form data',
     html: `
       <h2>Treat As Urgent</h2>
-      <P>This is to notify that someone just contacted you via oasis of love website. Details below: </p>
+      <P>This is to notify that someone wants to sponsor a child via oasis of love website. Details below: </p>
       <br />
       <p><strong>Name: </strong> ${formData.name}</p>
+      <p><strong>Gender: </strong> ${formData.gender}</p>
+      <p><strong>Religion: </strong> ${formData.religion}</p>
+      <p><strong>Marital Status: </strong> ${formData.maritalStatus}</p>
+      <p><strong>Address: </strong> ${formData.address}</p>
       <p><strong>Email: </strong> ${formData.email}</p>
       <p><strong>Phone Number: </strong> ${formData.phone}</p>
-      <p><strong>Message: </strong> ${formData.message}</p>
+      <p><strong>Prefered Age of Child: </strong> ${formData.preferedAgeOfChild}</p>
+      <p><strong>Prefered Gender of Child: </strong> ${formData.preferedGenderOfChild}</p>
+      <p><strong>Nature of Commitment: </strong> ${formData.natureOfCommitment}</p>
       <br />
       <br />
       <p>Please do not reply to this mail</p>

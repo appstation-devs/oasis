@@ -79,40 +79,28 @@
       <div class="container">
         <div class="row">
 				 	<div class="col-sm-12">
+             <h2 style="margin: 20px auto;text-align: center;"> Please Fill The Form Below:</h2>
             <form class="oasis_form">
               <div class="form-group">
                 <label for="name">Full Name</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name">
+                <input type="text" class="form-control" id="name" aria-describedby="name" required>
               </div>
-              <fieldset class="form-group">
-                <legend>Gender</legend>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="form-check">
-                      <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="gender" id="male" value="male" checked="">
-                        Male
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="form-check">
-                      <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="gender" id="female" value="female">
-                        Female
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </fieldset>
+              <div class="form-group">
+                <label class="form-check-label" for="gender">Gender</label>
+                <select class="custom-select" id="gender" required>
+                  <option>Choose...</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
               <div class="form-group">
                 <label for="religion">Religion</label>
-                <input type="text" class="form-control" id="religion" aria-describedby="religion">
+                <input type="text" class="form-control" id="religion" aria-describedby="religion" required>
               </div>
               <div class="form-group">
                 <label class="my-1 mr-2" for="maritalStatus">Marital Status</label>
-                <select class="custom-select" id="maritalStatus">
-                  <option selected>Choose...</option>
+                <select class="custom-select" id="maritalStatus" required>
+                  <option>Choose...</option>
                   <option value="single">Single</option>
                   <option value="married">Married</option>
                   <option value="divorced">Divorced</option>
@@ -120,15 +108,15 @@
               </div>
               <div class="form-group">
                 <label for="address">Address</label>
-                <input type="text" class="form-control" id="address" aria-describedby="address">
+                <input type="text" class="form-control" id="address" aria-describedby="address" required>
               </div>
               <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input type="tel" class="form-control" id="phone" aria-describedby="phone number">
+                <input type="tel" class="form-control" id="phone" aria-describedby="phone number" required>
               </div>
               <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" class="form-control" id="email" aria-describedby="email">
+                <input type="email" class="form-control" id="email" aria-describedby="email" required>
                 <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
 
@@ -136,89 +124,99 @@
                 <legend>Details of Child</legend>
                 <div class="form-group">
                   <label for="nameOfChild">Full Name</label>
-                  <input type="text" class="form-control" id="nameOfChild" aria-describedby="nameOfChild">
+                  <input type="text" class="form-control" id="nameOfChild" aria-describedby="nameOfChild" required>
                 </div>
                 <div class="form-group">
                   <label for="ageOfChild">Age</label>
-                  <input type="text" class="form-control" id="ageOfChild" aria-describedby="ageOfChild">
+                  <input type="text" class="form-control" id="ageOfChild" aria-describedby="ageOfChild" required>
                 </div>
-                <fieldset class="form-group">
-                  <legend>Gender</legend>
-                  <div class="row">
-                    <div class="col-6">
-                      <div class="form-check">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="genderOfChild" id="male" value="male" checked="">
-                          Male
-                        </label>
-                      </div>
-                    </div>
-                    <div class="col-6">
-                      <div class="form-check">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="genderOfChild" id="female" value="female">
-                          Female
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </fieldset>
+                <div class="form-group">
+                  <label class="form-check-label" for="genderOfChild">Gender</label>
+                  <select class="custom-select" id="genderOfChild" required>
+                    <option>Choose...</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
                 <div class="form-group">
                   <label for="homeTown">Home Town</label>
-                  <input type="text" class="form-control" id="homeTown" aria-describedby="homeTown">
+                  <input type="text" class="form-control" id="homeTown" aria-describedby="homeTown" required>
                 </div>
                 <div class="form-group">
                   <label for="lga">L.G.A</label>
-                  <input type="text" class="form-control" id="lga" aria-describedby="lga">
+                  <input type="text" class="form-control" id="lga" aria-describedby="lga" required>
                 </div>
                 <div class="form-group">
                   <label for="nationality">Nationality</label>
-                  <input type="text" class="form-control" id="nationality" aria-describedby="nationality">
+                  <input type="text" class="form-control" id="nationality" aria-describedby="nationality" required>
                 </div>
 
                 <div class="form-group">
                   <label for="fathersName">Father's Name</label>
-                  <input type="text" class="form-control" id="fathersName" aria-describedby="Fathers Name">
+                  <input type="text" class="form-control" id="fathersName" aria-describedby="Fathers Name" required>
                 </div>
                 <div class="form-group">
                   <label for="deathDateOfFather">Date of Death</label>
-                  <input type="date" class="form-control" id="deathDateOfFather" aria-describedby="death date of father">
-                </div>
-                <div class="form-group">
-                  <label for="fathersDeathCertificate">Father's Death Certificate</label>
-                  <input type="file" class="form-control-file" id="fathersDeathCertificate">
+                  <input type="date" class="form-control" id="deathDateOfFather" aria-describedby="death date of father" required>
                 </div>
                 <div class="form-group">
                   <label for="mothersName">Mother's Name</label>
-                  <input type="text" class="form-control" id="mothersName" aria-describedby="Mothers Name">
+                  <input type="text" class="form-control" id="mothersName" aria-describedby="Mothers Name" required>
                 </div>
                 <div class="form-group">
                   <label for="deathDateOfMother">Date of Death</label>
-                  <input type="date" class="form-control" id="deathDateOfMother" aria-describedby="death date of mother">
-                </div>
-                <div class="form-group">
-                  <label for="mothersDeathCertificate">Mother's Death Certificate</label>
-                  <input type="file" class="form-control-file" id="mothersDeathCertificate">
+                  <input type="date" class="form-control" id="deathDateOfMother" aria-describedby="death date of mother" required>
                 </div>
 
-                <div class="form-group">
-                  <label for="childsMedical">Child's Medical Report</label>
-                  <input type="file" class="form-control-file" id="childsMedical">
-                </div>
                 <div class="form-group">
                   <label for="childsClass">Child's Class</label>
                   <input type="text" class="form-control" id="childsClass" aria-describedby="childs class">
                 </div>
-                <div class="form-group">
-                  <label for="consentLetter">Consent Letter From Relatives</label>
-                  <input type="file" class="form-control-file" id="consentLetter">
-                </div>
-                <div class="form-group">
-                  <label for="policeReport">Police Report</label>
-                  <input type="file" class="form-control-file" id="policeReport">
-                </div>
-                
               </fieldset>
+              <p>Please you are to present the original copies of the following documents later:</p>
+              <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Father's Death Certificate
+                  <span class="badge badge-primary badge-pill">1</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Mother's Death Certificate
+                  <span class="badge badge-primary badge-pill">2</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Child's Medical Report
+                  <span class="badge badge-primary badge-pill">3</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Consent Letter From Relatives
+                  <span class="badge badge-primary badge-pill">4</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Police Report
+                  <span class="badge badge-primary badge-pill">5</span>
+                </li>
+              </ul>
+
+              <!-- <div class="form-group">
+                <label for="fathersDeathCertificate">Father's Death Certificate</label>
+                <input type="file" class="form-control-file" id="fathersDeathCertificate">
+              </div>
+              <div class="form-group">
+                <label for="mothersDeathCertificate">Mother's Death Certificate</label>
+                <input type="file" class="form-control-file" id="mothersDeathCertificate">
+              </div>
+              <div class="form-group">
+                <label for="childsMedical">Child's Medical Report</label>
+                <input type="file" class="form-control-file" id="childsMedical">
+              </div>
+              <div class="form-group">
+                <label for="policeReport">Police Report</label>
+                <input type="file" class="form-control-file" id="policeReport">
+              </div>
+              <div class="form-group">
+                <label for="consentLetter">Consent Letter From Relatives</label>
+                <input type="file" class="form-control-file" id="consentLetter">
+              </div> -->
               <br />
               <button type="submit" class="btn btn-primary" id="submit">Submit</button>
             </form>
@@ -311,7 +309,6 @@
     <script src="js/custom.js"></script>
 
     <script>
-      // name, gender, religion, marital-status, address, phone, email, nameOfChild, ageOfChild, genderOfChild, homeTown, lga, nationality, fathersName, deathDateOfFather, fathersDeathCertificate, mothersName, deathDateOfMother, mothersDeathCertificate, childsMedical, childsClass, consentLetter, policeReport
       const submitFrm = async(data) => {
         const response = await fetch('/register-child-form', {
           method: 'POST',
@@ -342,6 +339,7 @@
       submit.addEventListener('click', async(e) => {
         submit.disabled = true;
         submit.innerHTML = `<img src="images/button__loader.gif" alt="Submitting..." />`;
+
         const name = document.getElementById('name').value.trim();
         const gender = document.getElementById('gender').value.trim();
         const religion = document.getElementById('religion').value.trim();
@@ -352,21 +350,18 @@
         const nameOfChild = document.getElementById('nameOfChild').value.trim();
         const ageOfChild = document.getElementById('ageOfChild').value.trim();
         const genderOfChild = document.getElementById('genderOfChild').value.trim();
+        const homeTown = document.getElementById('homeTown').value.trim();
         const lga = document.getElementById('lga').value.trim();
         const nationality = document.getElementById('nationality').value.trim();
         const fathersName = document.getElementById('fathersName').value.trim();
         const deathDateOfFather = document.getElementById('deathDateOfFather').value.trim();
-        const fathersDeathCertificate = document.getElementById('fathersDeathCertificate').value.trim();
         const mothersName = document.getElementById('mothersName').value.trim();
         const deathDateOfMother = document.getElementById('deathDateOfMother').value.trim();
-        const mothersDeathCertificate = document.getElementById('mothersDeathCertificate').value.trim();
-        const childsMedical = document.getElementById('childsMedical').value.trim();
         const childsClass = document.getElementById('childsClass').value.trim();
-        const consentLetter = document.getElementById('consentLetter').value.trim();
-        const policeReport = document.getElementById('policeReport').value.trim();
 
         e.preventDefault();
-        const data = { name: sanitize(name), email: sanitize(email), phone: sanitize(phone), message: sanitize(message) };
+
+        const data = { name: sanitize(name), gender:sanitize(gender), religion:sanitize(religion), maritalStatus:sanitize(maritalStatus), address:sanitize(address), phone:sanitize(phone), email:sanitize(email), nameOfChild:sanitize(nameOfChild), ageOfChild:sanitize(ageOfChild), genderOfChild:sanitize(genderOfChild), homeTown:sanitize(homeTown), lga:sanitize(lga), nationality:sanitize(nationality), fathersName:sanitize(fathersName), deathDateOfFather:sanitize(deathDateOfFather), mothersName:sanitize(mothersName), deathDateOfMother:sanitize(deathDateOfMother), childsClass:sanitize(childsClass) };
         const result = await submitFrm(data);
         submit.innerHTML = 'Submitted';
         if(result.message !== undefined) {

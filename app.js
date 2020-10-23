@@ -4,9 +4,12 @@ const cors = require('cors');
 const app = express();
 const router = express.Router();
 
-const { contactFormValidationRules, registerAChildValidationRules, validate } = require('./validators/forms');
+const { contactFormValidationRules, registerAChildValidationRules, volunteerFormValidationRules, sponsorFormValidationRules, validate } = require('./validators/forms');
+
 const contactForm = require('./mail/contactForm');
-const registerAChildMail = require('./mail/registerAChild');
+const registerAChildForm = require('./mail/registerAChildForm');
+const volunteerForm = require('./mail/volunteerForm');
+const sponsorChildForm = require('./mail/sponsorChildForm');
 
 app.use(cors());
 app.use(express.json());
@@ -26,7 +29,29 @@ app.post('/contact-form', contactFormValidationRules(), validate, (req, res) => 
 
 app.post('/register-child-form', registerAChildValidationRules(), validate, (req, res) => {
   const data = { ...req.body };
-  contactForm.contactMail(data, (error, response) => {
+  registerAChildForm.registerAChildMail(data, (error, response) => {
+    if (error) {
+      res.status(500).json({ error: error });
+    } else {
+      res.status(200).json({ message: response });
+    }
+  });
+});
+
+app.post('/volunteer-form', volunteerFormValidationRules(), validate, (req, res) => {
+  const data = { ...req.body };
+  volunteerForm.volunteerMail(data, (error, response) => {
+    if (error) {
+      res.status(500).json({ error: error });
+    } else {
+      res.status(200).json({ message: response });
+    }
+  });
+});
+
+app.post('/sponsor-child-form', sponsorFormValidationRules(), validate, (req, res) => {
+  const data = { ...req.body };
+  sponsorChildForm.sponsorMail(data, (error, response) => {
     if (error) {
       res.status(500).json({ error: error });
     } else {
